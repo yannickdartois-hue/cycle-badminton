@@ -2368,5 +2368,10 @@ window.addEventListener('beforeprint',()=>{if(!isFull()&&curSessions().find(x=>x
 window.addEventListener('afterprint',()=>{if(PRINTING){PRINTING=false;show(state.c,state.id,false)}});
 tsInit();
 </script>
+<script>
+/* Hors ligne : enregistre le service worker (GitHub Pages uniquement). */
+(function(){if(!/^https?:$/.test(location.protocol)||/claude|anthropic/.test(location.hostname)||!('serviceWorker' in navigator))return;
+window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));})();
+</script>
 </body>
 </html>
