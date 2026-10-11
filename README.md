@@ -2,7 +2,7 @@
 
 Outil de terrain pour un cycle de badminton en CA4, au lycée Georges Pompidou de Castelnau-le-Lez : 9 séances par niveau, une évaluation en S9, 7 terrains, 32 élèves.
 
-**En ligne :** `https://<pseudo>.github.io/<nom-du-depot>/`
+**En ligne :** https://yannickdartois-hue.github.io/cycle-badminton/
 
 ## Contenu
 
@@ -19,6 +19,13 @@ Outil de terrain pour un cycle de badminton en CA4, au lycée Georges Pompidou d
 - **Minuteur** : appuie sur un bloc de la frise de la séance pour lancer un minuteur de la durée du bloc.
 - **Impression** : chaque séance s'imprime en fiche complète, même depuis la vue terrain. Les mêmes fiches existent en PDF, dans le dossier `pdf/`.
 
+## Sur l'écran d'accueil
+
+- **iPad** : dans Safari, Partager → « Sur l'écran d'accueil ».
+- **Tablette Android** : dans Chrome, menu ⋮ → « Installer l'application » ou « Ajouter à l'écran d'accueil ».
+
+L'outil installé garde ses propres données, séparées de celles du navigateur. Choisis l'une des deux façons de l'ouvrir et garde-la.
+
 ## Où sont gardées les données
 
 Les tournois, les notes, la séance du jour et les listes de classe sont enregistrés **dans le navigateur de l'appareil**, sans compte et sans serveur.
@@ -30,7 +37,11 @@ Les tournois, les notes, la séance du jour et les listes de classe sont enregis
 ## Fichiers
 
 ```
-index.html        l'outil complet (un seul fichier)
+index.html             l'outil complet (un seul fichier)
+manifest.webmanifest   nom et icônes de l'outil installé sur l'écran d'accueil
+icon-180.png           icône de l'iPad (écran d'accueil)
+icon-192.png           icônes Android
+icon-512.png
 pdf/              les 36 fiches à imprimer
   2de-S1 … S9     séances de Seconde
   Tle-S1 … S9     séances de Terminale

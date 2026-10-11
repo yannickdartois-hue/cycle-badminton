@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Badminton">
+<meta name="theme-color" content="#1f4fa8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
 <style>[hidden]{display:none!important}img{max-width:100%}</style>
 <title>Cycles Badminton</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1814,7 +1819,7 @@ function gaStarHtml(){
 function renderAuto(){
   return `<div class="panel"><span class="status st-next noprint">Outil · L1 et fin de cycle</span>
   <div class="teq-top"><div><h2>Auto-évaluation : comment je gagne mes points, mon étoile</h2><p class="lead">L1 : le coach compte comment son joueur gagne ses points pendant la rencontre de référence, puis le joueur se situe sur son étoile. Les pistes renvoient vers les thèmes et les exercices du catalogue. À refaire en fin de cycle pour mesurer les progrès (AFL2).</p></div>
-   <div class="teq-btns noprint"><button type="button" class="tb pri" onclick="window.print()">Imprimer la fiche</button><a class="tb" href="pdf/Autonomie-etoile-grille.pdf" download>PDF vierge</a></div></div>
+   <div class="teq-btns noprint"><button type="button" class="tb pri" onclick="window.print()">Imprimer la fiche</button><a class="tb" href="pdf/Autonomie-etoile-grille.pdf" download target="_blank" rel="noopener">PDF vierge</a></div></div>
   <div class="teq-id">Joueur observé : <span></span> Coach : <span></span> Adversaire : <span></span></div>
   <p><b>Comment je prévois de gagner ?</b> <span class="ga-line"></span></p>
   <h3 class="sec">1 · Grille du coach : comment se gagne l’échange</h3>
@@ -1847,7 +1852,7 @@ function renderCatalogue(){
   const fams=[...new Set(GA_THEMES.map(t=>t.fam))].concat(['Fiches techniques']);
   const T=GA_THEMES.filter(t=>!GA_FAM||t.fam===GA_FAM);
   return `<div class="panel"><span class="status st-next noprint">Outil</span><div class="teq-top"><div><h2>Catalogue d’exercices</h2><p class="lead">13 thèmes reliés aux 7 axes de l’étoile. Pour chaque thème : le match à thème qui montre le problème, la liste des problèmes pour se reconnaître, les exercices avec leurs critères (💡) et leurs niveaux à valider (● puis ●● ; ●●● pour les thèmes 2 et 5). D’après ton carnet avec D. ; le thème 13 (double) est ajouté.</p></div>
-   <div class="teq-btns noprint"><button type="button" class="tb pri" onclick="window.print()">Imprimer le catalogue</button><a class="tb" href="pdf/Catalogue-autonomie.pdf" download>PDF du catalogue</a></div></div>
+   <div class="teq-btns noprint"><button type="button" class="tb pri" onclick="window.print()">Imprimer le catalogue</button><a class="tb" href="pdf/Catalogue-autonomie.pdf" download target="_blank" rel="noopener">PDF du catalogue</a></div></div>
   <div class="seg noprint">${fams.map(f=>`<button type="button" class="tb mini${GA_FAM===f?' pri':''}" onclick="gaFam('${f.replace(/'/g,'’')}')">${f}</button>`).join('')}</div>
   <div class="tablewrap noprint"><table class="ga-index"><thead><tr><th>Axe de l’étoile</th><th>Thèmes</th><th>Exercices</th></tr></thead><tbody>${GA_AXES.map(a=>`<tr><td><b>${a.n}</b> <small class="muted">${a.afl}</small></td><td>${a.th.map(n=>`<a href="#ga-th-${n}" onclick="event.preventDefault();GA_FAM=null;show(state.c,'catalogue',false);setTimeout(()=>document.getElementById('ga-th-${n}').scrollIntoView({behavior:'smooth'}),50)">${n} · ${gaTheme(n).t}</a>`).join('<br>')}</td><td class="small">${a.th.map(gaExNums).join('<br>')}</td></tr>`).join('')}</tbody></table></div>
   ${GA_FAM==='Fiches techniques'?'':T.map(gaThemeHtml).join('')}
@@ -1861,7 +1866,7 @@ function renderCarnet(){
    <table class="teq-log"><thead><tr><th>Exercice n°</th><th>Niveau atteint</th><th>Mes remarques</th></tr></thead><tbody>${'<tr><td></td><td>● ●● ●●●</td><td></td></tr>'.repeat(3)}</tbody></table>
    <div class="ga-car-g"><div><b>Validation : match à thème</b> ☐ validé · score <span class="ga-line s"></span></div><div><b>Projet de jeu</b><span class="ga-line"></span></div><div><b>Bilan, la prochaine fois</b><span class="ga-line"></span></div></div></section>`;
   return `<div class="panel"><span class="status st-next noprint">Outil · fiche élève</span><div class="teq-top"><div><h2>Carnet d’entraînement</h2><p class="lead">Une fiche par élève, de L2 à L8 (modèle de ton carnet avec D.). L’élève la remplit en fin de leçon ; le professeur la relit en passant sur les terrains. C’est la trace principale de l’AFL2.</p></div>
-   <div class="teq-btns noprint"><button type="button" class="tb pri" onclick="window.print()">Imprimer le carnet</button><a class="tb" href="pdf/Carnet-entrainement.pdf" download>PDF du carnet</a></div></div>
+   <div class="teq-btns noprint"><button type="button" class="tb pri" onclick="window.print()">Imprimer le carnet</button><a class="tb" href="pdf/Carnet-entrainement.pdf" download target="_blank" rel="noopener">PDF du carnet</a></div></div>
   <div class="teq-id">Nom : <span></span> Partenaire : <span></span> Classe : <span class="s"></span> Répartition AFL2/AFL3 : <span class="s"></span></div>
   <div class="ga-cars">${[2,3,4,5,6,7].map(lesson).join('')}</div>
   <section class="ga-car ga-car8"><h3>Leçon 8 · Pour préparer l’évaluation, je choisis</h3>
@@ -1951,7 +1956,7 @@ function renderEvalForm(){
   const d=(a)=>a.map(x=>`<td>${x}</td>`).join('');
   return `<div class="panel"><span class="status st-eval noprint">Outil · S9</span>
   <div class="teq-top"><div><h2>Fiche d’évaluation finale</h2><p class="lead">Badminton · CA4 · lycée Georges Pompidou (RNE 0341921D). Rencontre entre deux binômes de niveau similaire : 4 simples et 1 double, chaque match en 2 sets secs de 11 points ; coaching par le partenaire pendant les simples.</p></div>
-   <div class="teq-btns noprint"><button type="button" class="tb pri" onclick="evPrintGrid()">Imprimer la grille</button><a class="tb" href="pdf/Fiche-evaluation-finale.pdf" download>PDF de la grille</a></div></div>
+   <div class="teq-btns noprint"><button type="button" class="tb pri" onclick="evPrintGrid()">Imprimer la grille</button><a class="tb" href="pdf/Fiche-evaluation-finale.pdf" download target="_blank" rel="noopener">PDF de la grille</a></div></div>
   <div class="evgrid">
   <div class="teq-id">Élève : <span></span> Partenaire : <span></span> Classe : <span class="s"></span> Répartition AFL2/AFL3 : <span class="s"></span></div>
   <div class="tablewrap"><table class="evtab"><thead><tr><th>Éléments à évaluer</th><th>Degré 1</th><th>Degré 2</th><th>Degré 3</th><th>Degré 4</th></tr></thead><tbody>
@@ -2088,7 +2093,7 @@ function renderBeg(){
 }
 function renderBank(){
   return `<div class="panel"><span class="status st-next noprint">Outil</span><div class="teq-top"><div><h2>Banque d’exercices</h2><p class="lead">Six catégories, quatre niveaux chacune (N1 le plus simple). Une paire qui réussit trop facilement l’exercice de la séance prend celui du niveau au-dessus ; une paire en échec prend celui du dessous. « Remplace » dit quel exercice de séance il remplace.</p></div>
-   <div class="teq-btns noprint"><button type="button" class="tb pri" onclick="printOnly('bank')">Imprimer la banque</button><a class="tb" href="pdf/Banque-exercices.pdf" download>PDF de la banque</a></div></div>
+   <div class="teq-btns noprint"><button type="button" class="tb pri" onclick="printOnly('bank')">Imprimer la banque</button><a class="tb" href="pdf/Banque-exercices.pdf" download target="_blank" rel="noopener">PDF de la banque</a></div></div>
   ${BANK.map(c=>`<section class="bank-cat"><h3>${c.c}</h3><div class="bank-grid">${c.ex.map(e=>bankCard(e,c.c)).join('')}</div></section>`).join('')}</div>`;
 }
 function renderCheck(){
@@ -2160,7 +2165,7 @@ function renderTeamWarm(){
   const rows=['S3','S4','S5','S6','S7'].map(s=>`<tr><td class="num"><b>${s}</b></td><td></td><td></td><td class="num">1 · 2 · 3</td><td></td></tr>`).join('');
   return `<div class="panel fiche"><span class="status st-next noprint">Outil · fiche élève</span>
   <div class="teq-top"><div><h2>Échauffement d’équipe</h2><p class="lead">Séances 3 à 7 · 10 min · par groupe de terrain, mené par l’élève coach de la séance. Ce que vous montrez ici compte pour l’AFL2 (se préparer et s’entraîner).</p></div>
-   <div class="teq-btns noprint"><button type="button" class="tb pri" onclick="printOnly('equipe')">Imprimer la fiche</button><a class="tb" href="pdf/Fiche-echauffement-equipe.pdf" download>PDF de la fiche</a></div></div>
+   <div class="teq-btns noprint"><button type="button" class="tb pri" onclick="printOnly('equipe')">Imprimer la fiche</button><a class="tb" href="pdf/Fiche-echauffement-equipe.pdf" download target="_blank" rel="noopener">PDF de la fiche</a></div></div>
   <div class="teq-id">Terrain n° : <span class="s"></span> Groupe : <span></span> Coach de la séance : <span></span> Classe : <span class="s"></span></div>
   <div class="teq-tl"><div style="flex:2"><b>2 min</b>Général</div><div style="flex:2"><b>2 min</b>Spécifique</div><div style="flex:1"><b>1 min</b>Articul.</div><div style="flex:5" class="hi"><b>5 min</b>Travail ciblé</div></div>
   <div class="teq-grid">
@@ -2258,7 +2263,7 @@ function printBar(c,s){
   const isToday=CUR[curKey()]===s.id;
   const day=s.evalPage?'':(isToday?'<span class="tb today-on">✓ Séance du jour</span>':`<button type="button" class="tb pri" onclick="setCur('${s.id}')">Marquer comme séance du jour</button>`);
   const vw=s.evalPage?'':`<button type="button" class="tb" onclick="setView('${VIEW==='prep'?'terrain':'prep'}')">${VIEW==='prep'?'Vue terrain':'Vue préparation'}</button>`;
-  return `<div class="printbar noprint">${day}${vw}<button type="button" class="tb" onclick="window.print()">Imprimer cette séance</button><a class="tb" href="${pdfName(c,s)}" download>PDF de la séance</a><button type="button" class="tb" onclick="printCycle()">Imprimer ${state.e==='a'?'toutes les leçons':'le cycle complet'}</button><a class="tb" href="${cyclePdf(c)}" download>PDF du cycle complet</a></div>`;
+  return `<div class="printbar noprint">${day}${vw}<button type="button" class="tb" onclick="window.print()">Imprimer cette séance</button><a class="tb" href="${pdfName(c,s)}" download target="_blank" rel="noopener">PDF de la séance</a><button type="button" class="tb" onclick="printCycle()">Imprimer ${state.e==='a'?'toutes les leçons':'le cycle complet'}</button><a class="tb" href="${cyclePdf(c)}" download target="_blank" rel="noopener">PDF du cycle complet</a></div>`;
 }
 function cycleCover(cy){
   return `<div class="panel print-cover"><h2>Cycle badminton · ${curLabel()}</h2><p class="lead">CA4 · rencontre entre binômes (4 simples et 1 double) · séances de 75 min de pratique · évaluation en S9 · référentiel du lycée Georges Pompidou · 7 terrains, 32 élèves.</p>
