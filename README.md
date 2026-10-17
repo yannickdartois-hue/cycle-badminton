@@ -61,3 +61,9 @@ Pour mettre à jour, envoie le fichier modifié avec le même nom (Add file → 
 ## Sources
 
 Les situations sont tirées des cycles et des fiches des collègues EPS du lycée : C., T., T., A. B., et du carnet GAREEPS de D. et Y. Elles ont été adaptées à 7 terrains et 32 élèves, à partir du référentiel badminton CA4 du lycée. Les seuils de réussite sont des repères de départ.
+
+## Design commun (17/10/2026)
+- `eps-design.css` et `eps-commun.js` : socle visuel partagé par tous les cycles (volley, badminton, demi-fond, tennis de table, step). Le fichier est identique dans chaque dépôt : en cas de modification, recopier la même version partout.
+- Couleur de l'activité : ligne `<style>:root{--sport:…}</style>` dans `index.html`.
+- **Mode gymnase** : bouton en haut à droite. Actif par défaut quand l'appli est ouverte depuis l'écran d'accueil de l'iPad.
+- `index-old.html` : la version d'avant, gardée telle quelle (bandeau jaune « Ancienne version »).

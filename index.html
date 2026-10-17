@@ -382,6 +382,9 @@ details.tv-more{margin-top:8px;max-width:760px} details.tv-more summary{cursor:p
 .appicon.logoimg{width:46px;height:46px;margin:0;border-radius:12px}
 .test-banner{background:#facc15;color:#111;font:700 15px/1.3 system-ui,sans-serif;text-align:center;padding:8px 12px;position:relative;z-index:99999}
 @media print{.appicon,.test-banner{display:none!important}}</style>
+<link rel="stylesheet" href="eps-design.css">
+<style>:root{--sport:#16a34a}</style>
+<script src="eps-commun.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -2230,7 +2233,7 @@ function sessionMode(s){if(['a1','a2','a8'].includes(s.id))return null;const n=+
 function renderSession(s){
   if(s.evalPage) return renderEval();
   const full=isFull();
-  const tl=`<div class="timeline">${s.tl.map(x=>`<button type="button" class="tl-b" data-bt-l="${tEsc(s.n+' · '+x[0])}" data-bt-m="${x[1]}" title="Lancer un minuteur de ${x[1]} min">${x[0]} <b>${x[1]} min</b><i class="noprint">▶</i></button>`).join('')}</div>`;
+  const tl=`<div class="timeline">${s.tl.map(x=>`<button type="button" class="tl-b" style="flex:${x[1]}" data-bt-l="${tEsc(s.n+' · '+x[0])}" data-bt-m="${x[1]}" title="Lancer un minuteur de ${x[1]} min">${x[0]} <b>${x[1]} min</b><i class="noprint">▶</i></button>`).join('')}</div>`;
   const md=sessionMode(s);
   const tbtn=md?`<button type="button" class="tb pri tzgo noprint" onclick="tGoFromSession('${CYCLES[state.c].label} ${s.n}','${md}')">▶ Tournoi de la séance : ${({grp:'groupes de 4, demi-terrains',grand:'grand terrain, groupes de 4 ou 5',poule:'poules sur grand terrain',binome:'binômes'})[md]}, minuteur, scores</button>`:'';
   const head=`<div class="panel">${statusChip(s.status)}<h2>${s.n} · ${s.title}</h2><p class="lead">${s.lead}</p>${tl}${tbtn}`;
